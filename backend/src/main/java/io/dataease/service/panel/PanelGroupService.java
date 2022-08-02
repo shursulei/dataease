@@ -34,6 +34,7 @@ import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.ss.usermodel.*;
+import org.pentaho.di.core.util.UUID4Util;
 import org.pentaho.di.core.util.UUIDUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -438,7 +439,7 @@ public class PanelGroupService {
         for (PanelGroupDTO panelGroupDTO : needInitPanels) {
             LogUtil.info("==>" + panelGroupDTO.getName() + "&" + panelGroupDTO.getId());
             String sourcePanelId = panelGroupDTO.getId(); //仪表板ID
-            String copyId = UUIDUtil.getUUIDAsString(); // 本次复制执行ID
+            String copyId = new UUID4Util().getUUID4AsString(); // 本次复制执行ID
             //TODO copy panelView
             extPanelViewMapper.copyFromPanel(sourcePanelId, sourcePanelId, copyId);
             //TODO 复制视图 chart_view

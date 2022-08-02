@@ -21,16 +21,16 @@ public class CommonConfig {
     private Environment env; // 保存了配置文件的信息
     private static String root_path = "/opt/dataease/data/kettle/";
 
-    @Bean
-    @ConditionalOnMissingBean
-    public KettleFileRepository kettleFileRepository() throws Exception {
-        KettleEnvironment.init();
-        KettleFileRepository repository = new KettleFileRepository();
-        KettleFileRepositoryMeta kettleDatabaseMeta = new KettleFileRepositoryMeta("KettleFileRepository", "repo",
-                "dataease kettle repo", root_path);
-        repository.init(kettleDatabaseMeta);
-        return repository;
-    }
+//    @Bean
+//    @ConditionalOnMissingBean
+//    public KettleFileRepository kettleFileRepository() throws Exception {
+//        KettleEnvironment.init();
+//        KettleFileRepository repository = new KettleFileRepository();
+//        KettleFileRepositoryMeta kettleDatabaseMeta = new KettleFileRepositoryMeta("KettleFileRepository", "repo",
+//                "dataease kettle repo", root_path);
+//        repository.init(kettleDatabaseMeta);
+//        return repository;
+//    }
 
     @Bean(destroyMethod = "shutdown")
     public CommonThreadPool resourcePoolThreadPool() {

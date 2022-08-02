@@ -8,6 +8,7 @@ import java.io.Serializable;
 @Data
 
 public class SysUserEntity implements Serializable {
+    private static final long serialVersionUID = -4601057296962918535L;
 
     @ApiModelProperty(hidden = true)
     private Long userId;
